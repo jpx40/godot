@@ -2308,6 +2308,7 @@ void ScriptTextEditor::_enable_code_editor() {
 	edit_hb->add_child(goto_menu);
 	goto_menu->get_popup()->add_shortcut(ED_GET_SHORTCUT("script_text_editor/goto_function"), SEARCH_LOCATE_FUNCTION);
 	goto_menu->get_popup()->add_shortcut(ED_GET_SHORTCUT("script_text_editor/goto_line"), SEARCH_GOTO_LINE);
+	goto_menu->get_popup()->add_shortcut(ED_GET_SHORTCUT("script_text_editor/lookup_symbol"), LOOKUP_SYMBOL);
 	goto_menu->get_popup()->add_separator();
 
 	goto_menu->get_popup()->add_child(bookmarks_menu);
@@ -2446,7 +2447,7 @@ void ScriptTextEditor::register_editor() {
 
 	// Leave these at zero, same can be accomplished with tab/shift-tab, including selection.
 	// The next/previous in history shortcut in this case makes a lot more sense.
-
+	ED_SHORTCUT("script_text_editor/lookup_symbol", TTR("Lookup Symbol"), Key::F12);
 	ED_SHORTCUT("script_text_editor/indent", TTR("Indent"), Key::NONE);
 	ED_SHORTCUT("script_text_editor/unindent", TTR("Unindent"), KeyModifierMask::SHIFT | Key::TAB);
 	ED_SHORTCUT_ARRAY("script_text_editor/toggle_comment", TTR("Toggle Comment"), { int32_t(KeyModifierMask::CMD_OR_CTRL | Key::K), int32_t(KeyModifierMask::CMD_OR_CTRL | Key::SLASH) });
